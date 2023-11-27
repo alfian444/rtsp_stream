@@ -13,11 +13,4 @@ app.ws('/:cameraIP', (ws, req) => {
         verbose: true,
     })(ws);
 });
-const server = http.createServer((req, res) => {
-    res.end('Server berjalan di IP ini');
-});
-server.listen(3000, () => {
-    const address = server.address();
-    console.log(`Server berjalan pada http://${address.address}:${address.port}`);
-});
-console.log(`running http://localhost:${PORT}`);
+console.log(`running port:${PORT}`);
