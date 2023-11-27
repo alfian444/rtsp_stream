@@ -11,7 +11,7 @@ app.ws('/:cameraIP', (ws, req) => {
     var cameraIP = decodeURIComponent(req.params.cameraIP);
     console.log(`cameraIP: ${cameraIP}`);
     proxy({
-        url: `rtsp://${config_data.cctv_rtsp.rtsp_url}`,
+        url: `rtsp://${cameraIP}`,
         transport: 'tcp',
         verbose: true,
     })(ws);
