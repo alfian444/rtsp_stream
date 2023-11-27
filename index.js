@@ -16,7 +16,7 @@ app.ws('/:cameraIP', (ws, req) => {
     })(ws);
 });
 app.listen(2000, () => {
-    console.log('Alamat IPv4 pada mesin:');
+    console.log('IPv4 address on the machine:');
     for (const key in interfaces) {
         for (const iface of interfaces[key]) {
             if (iface.family === 'IPv4' && !iface.internal) {
