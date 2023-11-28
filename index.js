@@ -1,8 +1,6 @@
 const express = require('express'),
     app = express(),
     { proxy, scriptUrl } = require('rtsp-relay')(app),
-    os = require('os'),
-    interfaces = os.networkInterfaces(),
     args = process.argv.slice(2),
     getPort = parseInt(args[0]);
 var PORT = 2000;
