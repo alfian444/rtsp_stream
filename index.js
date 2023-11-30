@@ -5,6 +5,7 @@ const express = require('express'),
     getPort = parseInt(args[0]),
     dgram = require('dgram'),
     parseString = require('xml2js').parseString,
+    EventEmitter = require('events'),
     discoveryMessage = `
 <?xml version="1.0" encoding="UTF-8"?>
 <e:Envelope xmlns:e="http://www.w3.org/2003/05/soap-envelope"
@@ -28,8 +29,11 @@ const express = require('express'),
 
 var PORT = 2000;
 
+app.setMaxListeners(0);
+process.setMaxListeners(0);
+EventEmitter.setMaxListeners(0);
+
 app.ws('/:cameraIP', (ws, req) => {
-    console.log(`request from ${req.headers.origin}`);
     var cameraIP = decodeURIComponent(req.params.cameraIP);
     console.log(`cameraIP: ${cameraIP}`);
     proxy({
